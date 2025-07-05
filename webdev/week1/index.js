@@ -26,3 +26,33 @@ function canVote(age) {
 }
 
 console.log(canVote(22));
+
+// loop to traverse an array
+
+let arrayNames = ["John", "Brad", "Arnold", "Raj"];
+let totalNames = arrayNames.length;
+
+for(var i = 0; i<totalNames; i++){
+    console.log(arrayNames[i]);
+}
+
+// Objects
+
+let user1 = {
+    name: "John",
+    age: 30,
+    gender: "male"
+}
+
+console.log(user1.gender);
+
+function greetMale(user1) {
+    if (user1.gender="male") {
+        console.log("Male user: " + user1.name);
+    }
+    else{
+        console.log("There are no male users");
+        
+    }
+}
+greetMale(user1);
