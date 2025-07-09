@@ -48,3 +48,16 @@ const circle = new Circle(1, "Blue");
 console.log(circle.area());
 console.log(circle.circumference());
 console.log(`Circle with color ${circle.color}`);
+
+// Some other classes:
+
+// DATE
+const now = new Date();
+console.log(now.toISOString());
+
+// MAP
+
+const map = new Map();
+map.set('name', 'Rahul');
+map.set('age', 21);
+console.log(map.get('name'));
