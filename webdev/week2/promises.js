@@ -8,4 +8,6 @@ function callback() {
     
 }
 
-setTimeoutPromisified(3000).then(callback);
+setTimeoutPromisified(3000).then(callback); // Promisified approach
+
+setTimeout(callback, 3000); // callback approach
