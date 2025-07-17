@@ -11,7 +11,7 @@ app.get("/sum", function(req, res){
     })
 } )
 
-app.get("/multiply/:a/:b", function(req, res){
+app.get("/multiply/:a/:b", function(req, res){  // Dynamic route handle /: /:
     const a = parseInt(req.params.a);
     const b = parseInt(req.params.b);
 
