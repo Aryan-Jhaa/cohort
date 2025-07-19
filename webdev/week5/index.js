@@ -1,23 +1,39 @@
-const express = require('express');
+const express = require("express");
 
 const app = express();
 
-app.get("/sum", function(req, res){
-    const a = parseInt(req.query.a);
-    const b = parseInt(req.query.b);
+app.get("/sum", function(req, res) {
+    const a = req.query.a;
+    const b = req.query.b;
 
     res.json({
-        answer: a+b
+        ans: a + b
     })
-} )
+});
 
-app.get("/multiply/:a/:b", function(req, res){  // Dynamic route handle /: /:
-    const a = parseInt(req.params.a);
-    const b = parseInt(req.params.b);
-
+app.get("/multiply", function(req, res) {
+    const a = req.query.a;
+    const b = req.query.b;
     res.json({
-        answer: a*b
+        ans: a * b
     })
-} )
+});
 
-app.listen(3000); 
+app.get("/divide", function(req, res) {
+    const a = req.query.a;
+    const b = req.query.b;
+    res.json({
+        ans: a / b
+    })
+
+});
+
+app.get("/subtract", function(req, res) {
+    const a = req.query.a;
+    const b = req.query.b;
+    res.json({
+        ans: a - b
+    })
+});
+
+app.listen(3000);
