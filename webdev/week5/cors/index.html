@@ -1,0 +1,22 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    async function sendRequest(){
+        alert("Sum function called");
+        const response = await axios.post("http://localhost:3000/sum", {
+            a: document.getElementById("a").value,
+            b: document.getElementById("b").value
+        });
+        console.log(response.data);
+        
+    }
+
+
+</script>
+<body>
+    <input id="a" type="text" placeholder="Enter a"></input>
+    <input id="b" type="text" placeholder="Enter b"></input>
+    <button onclick="sendRequest()">Sum</button>
+</body>
+
+</html>
