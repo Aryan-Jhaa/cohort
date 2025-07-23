@@ -1,3 +1,6 @@
+// Adding auth middleware
+
+
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "secret123"
