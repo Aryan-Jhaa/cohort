@@ -4,6 +4,8 @@ const express = require("express");
 const { UserModel, TodoModel } = require("./db");
 const jwt = require("jsonwebtoken");
 const { default: mongoose } = require("mongoose");
+const { z } = require("zod");
+const { parse } = require('dotenv');
 const JWT_SECRET = process.env.JWT_SECRET;
 mongoose.connect(process.env.DB_URL);
 
@@ -12,6 +14,23 @@ const app = express();
 app.use(express.json());
 
 app.post("/signup", async function(req, res) {
+
+    const requiredBody = z.object({
+        email: z.string().min(3).max(100).email(),
+        name: z.string().min(3).max(30),
+        password: z.string().min(3).max(30)
+    })
+
+    const parsedDatawithSucess = requiredBody.safeParse(req.body); // stores the error too
+    if(!parsedDatawithSucess.success){
+        res.json({
+            message: "Incorrect format",
+            error: parsedDatawithSucess.error // specify which error
+
+        })
+        return
+    }
+
     const email = req.body.email;
     const password = req.body.password;
     const name = req.body.name;
